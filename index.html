@@ -4,84 +4,37 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safe from Earthquakes 🌎</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: "Poppins", sans-serif;
-      background-color: #f0f4f8;
-      text-align: center;
-    }
-    h1 { background-color: #4CAF50; color: white; padding: 15px; margin: 0; font-size: 1.6em; }
-    #map { height: 480px; width: 90%; margin: 20px auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
-    .buttons { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
-    button { padding: 12px 18px; font-size: 1em; font-weight: bold; border: none; border-radius: 10px; cursor: pointer; color: white; transition: 0.3s; }
-    #emergencia { background-color: #e53935; }
-    #bomberos { background-color: #f57c00; }
-    #emergencia:hover { background-color: #c62828; }
-    #bomberos:hover { background-color: #ef6c00; }
-  </style>
 </head>
 <body>
-  <h1>🌍 Safe from Earthquakes</h1>
+  <header>
+    <h1>🌍 Safe from Earthquakes</h1>
+    <p>Protege tu vida y la de tu familia. Monitorea los sismos recientes y recibe alertas según su magnitud.</p>
+  </header>
 
-  <div class="buttons">
-    <button id="emergencia">🚨 Emergencia</button>
-    <button id="bomberos">🔥 Bomberos</button>
-  </div>
+  <main>
+    <div id="map"></div>
 
-  <div id="map"></div>
+    <div class="buttons">
+      <button id="emergencia">🚨 Emergencia</button>
+      <button id="bomberos">🔥 Bomberos</button>
+    </div>
 
-  <!-- Sonido de alarma -->
+    <div id="seguridad">
+      <h2>⚠️ Consejos de seguridad</h2>
+      <ul>
+        <li>Busca un lugar seguro lejos de ventanas y objetos que puedan caer.</li>
+        <li>Cúbrete la cabeza y agáchate.</li>
+        <li>Ten preparado un kit de emergencia con agua, comida y linterna.</li>
+        <li>Después del sismo, revisa si hay daños y sigue las instrucciones de las autoridades.</li>
+      </ul>
+    </div>
+  </main>
+
   <audio id="alarma" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
 
-  <script>
-    const map = L.map('map').setView([0,0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '&copy; OpenStreetMap contributors' }).addTo(map);
-
-    async function obtenerSismo() {
-      const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson";
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-
-        if (data.features && data.features.length > 0) {
-          const sismo = data.features[0];
-          const [lon, lat] = sismo.geometry.coordinates;
-          const lugar = sismo.properties.place;
-          const magnitud = sismo.properties.mag;
-
-          // Centrar mapa en el sismo
-          map.setView([lat, lon], 5);
-
-          // Agregar marcador
-          L.marker([lat, lon])
-            .addTo(map)
-            .bindPopup(`<b>Último Sismo</b><br>${lugar}<br>Magnitud: ${magnitud}`)
-            .openPopup();
-
-          // Activar alarma
-          document.getElementById('alarma').play();
-        } else {
-          alert("No se encontraron sismos recientes.");
-        }
-      } catch (error) {
-        console.error("Error al obtener datos del sismo:", error);
-      }
-    }
-
-    obtenerSismo();
-
-    // Botones
-    document.getElementById("emergencia").addEventListener("click", () => {
-      alert("🚨 Llamando al número de emergencia... Mantén la calma y busca un lugar seguro.");
-    });
-
-    document.getElementById("bomberos").addEventListener("click", () => {
-      alert("🔥 Contactando con los bomberos más cercanos...");
-    });
-  </script>
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
