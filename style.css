@@ -148,4 +148,23 @@ button {
 #safety h2 {
   text-align: center;
   color: #e53935;
+}/* ======================
+   Tsunami Alert & Images
+====================== */
+
+/* Tsunami Alert color */
+.blue { background: blue; }
+
+/* Image styling */
+#images {
+  width: 90%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+#images img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
