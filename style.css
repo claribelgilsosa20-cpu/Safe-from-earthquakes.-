@@ -69,7 +69,7 @@ button {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  color: white;
+  color: red;
   transition: 0.3s;
 }
 
