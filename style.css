@@ -31,6 +31,30 @@ header p {
   box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
+#legend {
+  width: 90%;
+  max-width: 300px;
+  margin: 10px auto;
+  text-align: left;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+#legend span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.green { background: green; }
+.yellow { background: yellow; }
+.red { background: red; }
+
 .buttons {
   display: flex;
   justify-content: center;
@@ -49,13 +73,13 @@ button {
   transition: 0.3s;
 }
 
-#emergencia { background: #e53935; }
-#emergencia:hover { background: #c62828; }
+#emergency { background: #e53935; }
+#emergency:hover { background: #c62828; }
 
-#bomberos { background: #f57c00; }
-#bomberos:hover { background: #ef6c00; }
+#fireDept { background: #f57c00; }
+#fireDept:hover { background: #ef6c00; }
 
-#seguridad {
+#safety {
   width: 90%;
   margin: 20px auto 40px;
   background: white;
@@ -65,30 +89,63 @@ button {
   text-align: left;
 }
 
-#seguridad h2 {
+#safety h2 {
   text-align: center;
   color: #e53935;
 }
 
-#seguridad ul {
+#safety ul {
   padding-left: 20px;
 }
 
-/* Animación de marcador grande para sismos fuertes */
-@keyframes pulsar {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.5); opacity: 0.7; }
-  100% { transform: scale(1); opacity: 1; }
-}
-.leaflet-marker-icon.fuerte {
-  animation: pulsar 1s infinite;
-}/* Animación para marcadores rojos (sismos fuertes) */
-@keyframes pulsar {
+/* Animation for strong earthquake markers */
+@keyframes pulse {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.5); opacity: 0.7; }
   100% { transform: scale(1); opacity: 1; }
 }
 
-.leaflet-marker-icon.fuerte {
-  animation: pulsar 1s infinite;
+.leaflet-marker-icon.strong {
+  animation: pulse 1s infinite;
+}/* ==============================
+   Retoques para versión en inglés
+   Incluye animaciones y leyenda
+============================== */
+
+/* Leyenda colores */
+#legend span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.green { background: green; }
+.yellow { background: yellow; }
+.red { background: red; }
+
+/* Animación para marcadores fuertes */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.leaflet-marker-icon.strong {
+  animation: pulse 1s infinite;
+}
+
+/* Ajustes botones */
+#emergency { background: #e53935; }
+#emergency:hover { background: #c62828; }
+
+#fireDept { background: #f57c00; }
+#fireDept:hover { background: #ef6c00; }
+
+/* Ajuste sección consejos */
+#safety h2 {
+  text-align: center;
+  color: #e53935;
 }
