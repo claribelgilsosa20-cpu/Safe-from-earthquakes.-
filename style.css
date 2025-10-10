@@ -185,3 +185,51 @@ button {
 <footer id="creatorFooter">
   <p>© 2025 Created by Claribel Gil Sosa</p>
 </footer>
+/* ==========================
+   Animations
+========================== */
+
+/* Fade-in sections */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInAnim 1s forwards;
+}
+
+@keyframes fadeInAnim {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button hover effect */
+button {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+/* Strong earthquake marker animation */
+.strong {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.5); }
+  100% { transform: scale(1); }
+}
+
+/* Tsunami image animation */
+#images img {
+  animation: zoomIn 1s ease-in-out;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
