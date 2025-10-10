@@ -153,4 +153,35 @@ button {
 ====================== */
 
 /* Tsunami Alert color */
-.blue { background: blue; }
+.blue { background: blue; }/* ==========================
+   Website Details & Info
+=========================== */
+#websiteDetails, #earthquakeTsunamiInfo {
+  margin: 30px auto;
+  padding: 20px;
+  max-width: 900px;
+  background: #f7f7f7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+}
+
+#websiteDetails h2, #earthquakeTsunamiInfo h2 {
+  color: #e53935;
+  margin-bottom: 15px;
+}
+
+#earthquakeTsunamiInfo h3 {
+  color: #f57c00;
+  margin-top: 15px;
+}
+
+#earthquakeTsunamiInfo ul {
+  margin-left: 20px;
+}<!-- ==============================
+      Footer - Creator Name
+============================== -->
+<footer id="creatorFooter">
+  <p>© 2025 Created by Claribel Gil Sosa</p>
+</footer>
