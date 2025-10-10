@@ -64,4 +64,19 @@ document.getElementById("emergency").addEventListener("click", () => {
 
 document.getElementById("fireDept").addEventListener("click", () => {
   alert("🔥 Contacting nearest fire department...");
-});
+});// ======================
+// Tsunami Alert Function
+// ======================
+function tsunamiAlert(lat, lon, location) {
+  const icon = L.divIcon({
+    className: 'custom-marker',
+    html: `<div style="background:blue;width:20px;height:20px;border-radius:50%;border:2px solid #fff;"></div>`,
+    iconSize: [20,20]
+  });
+  const marker = L.marker([lat, lon], {icon: icon}).addTo(map);
+  marker.bindPopup(`<b>Tsunami Alert</b><br>${location}`);
+  tsunamiAlarm.play();
+}
+
+// Example tsunami alert (you can add more dynamically)
+tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area");
