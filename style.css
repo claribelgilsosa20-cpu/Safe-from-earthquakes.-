@@ -258,4 +258,21 @@ button:hover {
 #emergency:hover, #fireDept:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}#ai-chatbot {
+  background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  color: #0d47a1;
+}
+
+#ai-chatbot h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+#ai-chatbot p {
+  font-size: 1.1rem;
+  color: #1565c0;
+  margin-bottom: 25px;
 }
