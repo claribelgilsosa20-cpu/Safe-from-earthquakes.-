@@ -5,7 +5,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-const alarm = document.getElementById('alarm');
+// Audio alarms
+const earthquakeAlarm = document.getElementById('alarma'); // Make sure your HTML audio id="alarma"
+const tsunamiAlarm = new Audio('https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg'); // Tsunami alarm
 
 // Fetch recent earthquakes (last 24h)
 async function fetchEarthquakes() {
@@ -37,7 +39,7 @@ async function fetchEarthquakes() {
 
         // Alarm and animation for strong earthquakes
         if (magnitude >= 4) {
-          alarm.play();
+          earthquakeAlarm.play();
           const markerDiv = marker._icon;
           if(markerDiv) markerDiv.classList.add('strong');
         }
@@ -58,13 +60,15 @@ async function fetchEarthquakes() {
 fetchEarthquakes();
 
 // Buttons
-document.getElementById("emergency").addEventListener("click", () => {
+document.getElementById("emergencia").addEventListener("click", () => {
   alert("🚨 Calling emergency number... Stay calm and find a safe spot.");
 });
 
-document.getElementById("fireDept").addEventListener("click", () => {
+document.getElementById("bomberos").addEventListener("click", () => {
   alert("🔥 Contacting nearest fire department...");
-});// ======================
+});
+
+// ======================
 // Tsunami Alert Function
 // ======================
 function tsunamiAlert(lat, lon, location) {
@@ -78,5 +82,5 @@ function tsunamiAlert(lat, lon, location) {
   tsunamiAlarm.play();
 }
 
-// Example tsunami alert (you can add more dynamically)
-tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area"); <script src="js/script.js"></script>
+// Example tsunami alert (Tokyo)
+tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area");
