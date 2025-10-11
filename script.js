@@ -79,4 +79,4 @@ function tsunamiAlert(lat, lon, location) {
 }
 
 // Example tsunami alert (you can add more dynamically)
-tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area"); 
+tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area"); <script src="js/script.js"></script>
