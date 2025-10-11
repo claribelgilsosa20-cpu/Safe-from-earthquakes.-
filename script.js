@@ -79,4 +79,10 @@ function tsunamiAlert(lat, lon, location) {
 }
 
 // Example tsunami alert (you can add more dynamically)
-tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area");
+tsunamiAlert(35.6895, 139.6917, "Tokyo Coastal Area"); <<iframe
+  src="https://huggingface.co/spaces/Claribelgilsosa23/Safe-from-earthquake-ai?iframe=true"
+  width="100%"
+  height="600"
+  frameborder="0"
+  title="Disaster AI Chatbot"
+></iframe>
