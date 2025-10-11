@@ -83,4 +83,45 @@ button {
   100% { transform: scale(1); }
 }
 
-footer { text-align: center; padding: 15px; background: #eee; margin-top: 40px; }
+footer { text-align: center; padding: 15px; background: #eee; margin-top: 40px; }/* ==============================
+   Additional Information Styling
+============================== */
+.info-box {
+  background: #f7f9fc;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  font-family: 'Arial', sans-serif;
+}
+
+.info-box h2 {
+  color: #0d47a1;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.info-box h3 {
+  color: #1565c0;
+  margin-top: 15px;
+}
+
+.info-box ul {
+  margin-left: 20px;
+  list-style-type: disc;
+  line-height: 1.6;
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInInfo 1s forwards;
+}
+
+@keyframes fadeInInfo {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
