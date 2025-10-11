@@ -1,78 +1,11 @@
-<<!DOCTYPE html>
+<<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safe from Earthquakes 🌎</title>
-  
-  <!-- CSS -->
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f4f6f7;
-      color: #333;
-    }
-    header {
-      background-color: #1e90ff;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-    }
-    main {
-      padding: 20px;
-    }
-    #map {
-      height: 400px;
-      width: 100%;
-      border-radius: 15px;
-      margin-bottom: 20px;
-    }
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
-    .buttons button {
-      padding: 15px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      color: white;
-      transition: transform 0.2s;
-    }
-    .buttons button:hover {
-      transform: scale(1.05);
-    }
-    #emergency {
-      background-color: #ff4d4d;
-    }
-    #fire-department {
-      background-color: #ff9900;
-    }
-    section, #description, #websiteDetails, #earthquakeTsunamiInfo {
-      margin-bottom: 40px;
-      padding: 20px;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #1e90ff;
-      color: white;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -81,17 +14,14 @@
   </header>
 
   <main>
-    <!-- MAP -->
     <div id="map"></div>
 
-    <!-- EMERGENCY BUTTONS -->
     <div class="buttons">
       <button id="emergency">🚨 Emergency</button>
-      <button id="fire-department">🔥 Fire Department</button>
+      <button id="fireDept">🔥 Fire Department</button>
     </div>
 
-    <!-- SAFETY TIPS -->
-    <div id="seguridad">
+    <div id="safety">
       <h2>⚠️ Safety Tips</h2>
       <ul>
         <li>Find a safe spot away from windows and falling objects.</li>
@@ -101,7 +31,6 @@
       </ul>
     </div>
 
-    <!-- DESCRIPTION -->
     <div id="description">
       <h2>ℹ️ How it works</h2>
       <p><b>Earthquake Detection:</b> The map shows real-time earthquakes. Red markers indicate strong quakes, and an alarm sounds if magnitude ≥4.</p>
@@ -109,60 +38,60 @@
       <p><b>Emergency & Fire Buttons:</b> Press to simulate contacting emergency services.</p>
     </div>
 
-    <!-- WEBSITE DETAILS -->
     <div id="websiteDetails">
       <h2>🌐 Website Details</h2>
-      <p>This is a website to promote security and inform every detail of what is a natural disaster such as earthquakes or tsunamis, where to take refuge, and the causes and effects of an earthquake and tsunami.</p>
-      <p>As it is already known, there have been many deaths and terrible accidents caused by earthquakes and tsunamis. For example, in Japan, a devastating tsunami resulted in many deaths. This is where our website comes in: it has an earthquake and tsunami alarm, you can call emergency services and the fire department directly from the website, and it informs you of the measures to stay safe.</p>
+      <p>This website promotes safety and informs about natural disasters such as earthquakes and tsunamis, where to take refuge, and their causes and effects.</p>
+      <p>Many disasters have caused deaths and damage. For example, Japan experienced a devastating tsunami. Our website provides earthquake and tsunami alarms, direct emergency calls, and safety measures.</p>
     </div>
 
-    <!-- EARTHQUAKE & TSUNAMI INFO -->
     <div id="earthquakeTsunamiInfo">
       <h2>🌍 Earthquake & Tsunami Information</h2>
-
       <h3>What is an Earthquake?</h3>
-      <p>An earthquake is the sudden shaking of the ground caused by movements in the Earth's crust. These movements release energy in the form of seismic waves, which can cause damage to buildings, roads, and infrastructure.</p>
+      <p>An earthquake is the sudden shaking of the ground caused by movements in the Earth's crust.</p>
 
       <h3>What is a Tsunami?</h3>
-      <p>A tsunami is a series of large ocean waves caused by underwater earthquakes, volcanic eruptions, or landslides. When these waves reach coastal areas, they can flood cities, destroy buildings, and endanger lives.</p>
+      <p>A tsunami is a series of large ocean waves caused by underwater earthquakes, volcanic eruptions, or landslides.</p>
 
       <h3>Consequences</h3>
       <ul>
         <li>Collapsed buildings and infrastructure.</li>
         <li>Injuries or loss of life.</li>
-        <li>Disruption of electricity, water, and communication services.</li>
+        <li>Disruption of utilities and communication services.</li>
         <li>Flooding and landslides.</li>
       </ul>
 
       <h3>Safe Places & Precautions</h3>
       <ul>
-        <li><b>During an earthquake:</b> Drop, Cover, and Hold On under sturdy furniture. Stay away from windows, glass, and heavy objects.</li>
-        <li><b>During a tsunami alert:</b> Move immediately to higher ground or inland areas. Avoid rivers, beaches, and coastal areas.</li>
-        <li>Always have an emergency kit ready with water, food, flashlight, and a first-aid kit.</li>
+        <li><b>During an earthquake:</b> Drop, Cover, and Hold On under sturdy furniture. Stay away from windows and heavy objects.</li>
+        <li><b>During a tsunami alert:</b> Move immediately to higher ground or inland areas.</li>
+        <li>Always have an emergency kit ready with water, food, flashlight, and first-aid kit.</li>
       </ul>
     </div>
 
-    <!-- AI CHATBOT -->
-    <section id="ai-chatbot" style="text-align:center;">
+    <!-- ==============================
+         Chatbot AI Section
+    ============================== -->
+    <section id="ai-chatbot" class="chatbot-section">
       <h2>Earthquake & Tsunami AI Assistant 🤖</h2>
       <p>This AI chatbot helps you learn about safety, emergency steps, and real-time guidance during natural disasters.</p>
       <iframe
-        src="https://huggingface.co/spaces/Claribelgilsosa23/Safe-from-earthquake-ai?iframe=true"
+        src="https://huggingface.co/spaces/Alazar/disaster-chatbot?iframe=true"
         width="100%"
         height="600"
         frameborder="0"
         title="Disaster AI Chatbot"
       ></iframe>
     </section>
+
   </main>
 
-  <audio id="alarm"></audio>
+  <audio id="alarm" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
+  <audio id="tsunamiAlarm" src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg"></audio>
 
-  <footer>
+  <footer id="creatorFooter">
     <p>© 2025 Created by Claribel Gil Sosa</p>
   </footer>
 
-  <!-- LEAFLET JS -->
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
